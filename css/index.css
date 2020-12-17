@@ -14,18 +14,18 @@ html,body{
     width: 100%;
     height: 100%;
 
-	background-image: -webkit-linear-gradient(top, #02164f, #000);
-  background-image: -moz-linear-gradient(top, #02164f, #000);
-  background-image: -ms-linear-gradient(top, #02164f, #000);
-  background-image: -o-linear-gradient(top, #02164f, #000);
-  background-image: linear-gradient(to bottom, #02164f, #000);
-    background-color: #1A1A1A;
+	background-image: -webkit-linear-gradient(top, #AAE8FD, #E8FCFD);
+  background-image: -moz-linear-gradient(top, ##AAE8FD, #E8FCFD);
+  background-image: -ms-linear-gradient(top, ##AAE8FD, #E8FCFD);
+  background-image: -o-linear-gradient(top, ##AAE8FD, #E8FCFD);
+  background-image: linear-gradient(to bottom, ##AAE8FD, #E8FCFD);
+    background-color: ##AAE8FD;
 }
 
 
 
 .loginmain{
-    background-color: hsla(228,61%,18%,0.50);
+    background-color: hsla(180, 12%, 83%, 0.5);
     width: 540px;
     height: 300px;
     position: absolute;
