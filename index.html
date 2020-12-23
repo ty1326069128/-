@@ -1,47 +1,82 @@
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>登录</title>
-    <link rel="stylesheet" href="css/index.css">
-</head>
-<body>
-<canvas class="cavs" width="1575" height="1337"></canvas>
 
-<div class="loginmain">
-    <div class="login-title">
-        <span>欢迎加入XX系统</span>
-    </div>
+	<head>
+		<meta charset="UTF-8">
+		<title>登录</title>
+		<link rel="stylesheet" href="css/index.css">
+	</head>
 
-    <div class="login-con">
-        <div class="login-user">
-            <div class="icon">
-                <img src="image/cd-icon-username.png" alt="">
-            </div>
-            <input type="text" name="usernem" placeholder="用户名" autocomplete="off" value="">
-        </div>
-        <div class="login-pwd">
-            <div class="icon">
-                <img src="image/cd-icon-password.png" alt="">
-            </div>
-            <input type="password" name="pwd" placeholder="密码" autocomplete="off" value="">
-        </div>
-        <div class="login-yan">
-            <div class="icon">
-                <img src="image/yan.png" alt="">
-            </div>
-            <input type="text" name="pwd" placeholder="验证码" autocomplete="off" value="">
-        </div>
-        <div class="login-btn">
-            <input type="button" value="登录">
-        </div>
-    </div>
+	<body>
+		<canvas class="cavs" width="1575" height="1337"></canvas>
 
-</div>
+		<div class="loginmain">
+			<div class="login-title">
+				<span>欢迎加入XX系统</span>
+			</div>
 
-</body>
+			<div class="login-con">
+				<div class="login-user">
+					<div class="icon">
+						<img src="image/cd-icon-username.png" alt="">
+					</div>
+					<input type="text" name="username" placeholder="用户名" autocomplete="off" value="">
+				</div>
+				<div class="login-pwd">
+					<div class="icon">
+						<img src="image/cd-icon-password.png" alt="">
+					</div>
+					<input type="password" name="pwd" placeholder="密码" autocomplete="off" value="">
+				</div>
+				<div class="login-yan">
+					<div class="icon">
+						<img src="image/yan.png" alt="">
+					</div>
+					<input type="text" name="code" placeholder="验证码" autocomplete="off" value="" class="input-val">
+					<span class="box"></span>
+				</div>
+				<div class="login-btn">
+					<input type="submit" value="登录" id="submit">
+				</div>
+			</div>
+
+		</div>
+
+	</body>
+
 </html>
 
 <script src="https://www.jq22.com/jquery/jquery-1.10.2.js"></script>
 <script src="js/ban.js"></script>
+<script src="js/code.js"></script>
+<script src="layer/layer.js"></script>
+
+<script>
+	$(function() {
+		// 初始加载
+		VerificationCode($(".box"), 4);
+
+		$("#submit").click(function() {
+			var username = $("input[name='username']").val();
+			if(username == '') {
+				layer.msg('请输入用户名', {icon: 5,offset: 't'});
+				return;
+			}
+
+			var passWrod = $("input[name='pwd']").val();
+			if(passWrod == '') {
+				layer.msg('请输入密码', {icon: 5,offset: 't'});
+				return;
+			}
+
+			var code = $("input[name='code']").val();
+			if(code != $(".box").attr('value')) {
+				layer.msg('验证码错误', {icon: 5,offset: 't'});
+				return;
+			}
+
+			layer.msg('登录成功', {icon: 6,offset: 't'});
+
+		})
+	})
+</script>
